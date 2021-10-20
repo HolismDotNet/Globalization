@@ -23,5 +23,7 @@ namespace Holism.Globalization.Business
             var translations = GetList(i => i.LocaleId == localeId);
             return translations;
         }
+
+        public 
     }
 }
