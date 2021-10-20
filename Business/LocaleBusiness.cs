@@ -6,6 +6,7 @@ using Holism.Infra;
 using Holism.Globalization.DataAccess;
 using Holism.Globalization.Models;
 using Humanizer;
+using System.Collections.Generic;
 
 namespace Holism.Globalization.Business
 {
@@ -23,6 +24,12 @@ namespace Holism.Globalization.Business
             locale.IsActive = !locale.IsActive;
             Update(locale);
             return locale;
+        }
+
+        public List<Locale> GetActiveLocales()
+        {
+            var activeLocales = GetList(i => i.IsActive == true);
+            return activeLocales;
         }
     }
 }
