@@ -7,6 +7,7 @@ using Holism.Globalization.DataAccess;
 using Holism.Globalization.Models;
 using Humanizer;
 using System.Collections.Generic;
+using System.Dynamic;
 
 namespace Holism.Globalization.Business
 {
@@ -17,6 +18,8 @@ namespace Holism.Globalization.Business
 
         protected override ReadRepository<Locale> ReadRepository =>
             Repository.Locale;
+
+        private Dictionary<string, object> translationsDictionary = new Dictionary<string, object>();
 
         public Locale ToggleIsActive(long id)
         {
@@ -30,6 +33,23 @@ namespace Holism.Globalization.Business
         {
             var activeLocales = GetList(i => i.IsActive == true);
             return activeLocales;
+        }
+
+        public object GetTranslations(string locale)
+        {
+            if(translationsDictionary.ContainsKey(locale))
+            {
+                return translationsDictionary[locale];
+            }
+            dynamic entry = new ExpandoObject();
+            var localObject = Get(i => i.Key.ToLower() == locale.ToLower());
+            var translations = new TranslationBusiness().GetTranslations(localObject.Id);
+            foreach (var translation in translations)
+            {
+                ExpandoObjectExtensions.AddProperty(entry, translation.TextKey, translation.Value);
+            }
+            translationsDictionary.Add(locale, entry);
+            return entry;
         }
     }
 }

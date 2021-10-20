@@ -6,6 +6,7 @@ using Holism.Infra;
 using Holism.Globalization.DataAccess;
 using Holism.Globalization.Models;
 using Humanizer;
+using System.Collections.Generic;
 
 namespace Holism.Globalization.Business
 {
@@ -16,5 +17,11 @@ namespace Holism.Globalization.Business
 
         protected override ReadRepository<TranslationView> ReadRepository =>
             Repository.TranslationView;
+
+        public List<TranslationView> GetTranslations(long localeId)
+        {
+            var translations = GetList(i => i.LocaleId == localeId);
+            return translations;
+        }
     }
 }
