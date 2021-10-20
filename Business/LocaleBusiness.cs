@@ -16,5 +16,13 @@ namespace Holism.Globalization.Business
 
         protected override ReadRepository<Locale> ReadRepository =>
             Repository.Locale;
+
+        public Locale ToggleIsActive(long id)
+        {
+            var locale = Get(id);
+            locale.IsActive = !locale.IsActive;
+            Update(locale);
+            return locale;
+        }
     }
 }
