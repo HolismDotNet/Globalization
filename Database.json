@@ -13,6 +13,10 @@
                     "isUnique": true
                 },
                 {
+                    "name": "IsRtl",
+                    "isNullable": true
+                },
+                {
                     "name": "IsActive",
                     "type": "boolean",
                     "hasDefault": true,

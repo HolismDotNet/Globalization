@@ -15,6 +15,8 @@ namespace Holism.Globalization.Models
 
         public string LocalKey { get; set; }
 
+        public string IsRtl { get; set; }
+
         public bool IsActive { get; set; }
 
         public Guid? CountryGuid { get; set; }
