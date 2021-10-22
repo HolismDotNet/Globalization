@@ -35,6 +35,12 @@ namespace Holism.Globalization.Business
             return activeLocales;
         }
 
+        public Locale GetByKey(string key)
+        {
+            var locale = Get(i => i.Key.ToLower() == key.ToLower());
+            return locale;
+        }
+
         public object GetTranslations(string locale)
         {
             if(translationsDictionary.ContainsKey(locale))
@@ -42,7 +48,7 @@ namespace Holism.Globalization.Business
                 return translationsDictionary[locale];
             }
             dynamic entry = new ExpandoObject();
-            var localObject = Get(i => i.Key.ToLower() == locale.ToLower());
+            var localObject = GetByKey(locale);
             var translations = new TranslationBusiness().GetTranslations(localObject.Id);
             foreach (var translation in translations)
             {
@@ -50,6 +56,14 @@ namespace Holism.Globalization.Business
             }
             translationsDictionary.Add(locale, entry);
             return entry;
+        }
+
+        public object GetData(string locale)
+        {
+            dynamic data = new ExpandoObject();
+            data.Locale = GetByKey(locale);
+            data.Translations = GetTranslations(locale);
+            return data;
         }
     }
 }
