@@ -26,6 +26,10 @@
                 {
                     "name": "CountryGuid",
                     "isNullable": true
+                },
+                {
+                    "name": "TimeZoneIdentifier",
+                    "isNullable": true
                 }
             ]
         },
