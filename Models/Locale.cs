@@ -21,6 +21,8 @@ namespace Holism.Globalization.Models
 
         public Guid? CountryGuid { get; set; }
 
+        public string TimeZoneIdentifier { get; set; }
+
         public dynamic RelatedItems { get; set; }
     }
 }
