@@ -13,6 +13,8 @@ namespace Holism.Globalization.Business
 {
     public class LocaleBusiness : Business<Locale, Locale>
     {
+        // language-region-script
+        
         protected override Repository<Locale> WriteRepository =>
             Repository.Locale;
 
