@@ -31,5 +31,10 @@ namespace Holism.Globalization.Business
             var result = Create(translation.CastTo<Translation>());
             return Get(result.Id);
         }
+
+        protected override void PostDeletion(Translation translation)
+        {
+            new TextBusiness().Delete(translation.TextId);
+        }
     }
 }
