@@ -32,9 +32,9 @@ namespace Holism.Globalization.Business
             return Get(result.Id);
         }
 
-        protected override void PostDeletion(Translation translation)
-        {
-            new TextBusiness().Delete(translation.TextId);
-        }
+        // protected override void PostDeletion(Translation translation)
+        // {
+        //     new TextBusiness().Delete(translation.TextId);
+        // }
     }
 }

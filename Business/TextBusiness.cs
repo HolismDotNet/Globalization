@@ -24,6 +24,8 @@ namespace Holism.Globalization.Business
             var dbText = ReadRepository.Get(i => i.Key.ToLower() == text.ToLower());
             if  (dbText != null)
             {
+                dbText.Key = text;
+                Update(dbText);
                 return dbText;
             }
             dbText = new Text();
