@@ -1,16 +1,15 @@
-namespace Holism.Globalization.Models
+namespace Holism.Globalization.Models;
+
+public class Text : IEntity
 {
-    public class Text : Holism.Models.IEntity
+    public Text()
     {
-        public Text()
-        {
-            RelatedItems = new System.Dynamic.ExpandoObject();
-        }
-
-        public long Id { get; set; }
-
-        public string Key { get; set; }
-
-        public dynamic RelatedItems { get; set; }
+        RelatedItems = new ExpandoObject();
     }
+
+    public long Id { get; set; }
+
+    public string Key { get; set; }
+
+    public dynamic RelatedItems { get; set; }
 }

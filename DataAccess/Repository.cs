@@ -1,44 +1,36 @@
-using Holism.Globalization.Models;
-using Holism.DataAccess;
+namespace Holism.Globalization.DataAccess;
 
-namespace Holism.Globalization.DataAccess
+public class Repository
 {
-    public class Repository
+    public static Repository<Locale> Locale
     {
-        public static Repository<Locale> Locale
+        get
         {
-            get
-            {
-                return new Holism.DataAccess.Repository<Locale
-                >(new GlobalizationContext());
-            }
+            return new Repository<Locale>(new GlobalizationContext());
         }
+    }
 
-        public static Repository<Text> Text
+    public static Repository<Text> Text
+    {
+        get
         {
-            get
-            {
-                return new Holism.DataAccess.Repository<Text
-                >(new GlobalizationContext());
-            }
+            return new Repository<Text>(new GlobalizationContext());
         }
+    }
 
-        public static Repository<Translation> Translation
+    public static Repository<Translation> Translation
+    {
+        get
         {
-            get
-            {
-                return new Holism.DataAccess.Repository<Translation
-                >(new GlobalizationContext());
-            }
+            return new Repository<Translation>(new GlobalizationContext());
         }
+    }
 
-        public static Repository<TranslationView> TranslationView
+    public static Repository<TranslationView> TranslationView
+    {
+        get
         {
-            get
-            {
-                return new Holism.DataAccess.Repository<TranslationView
-                >(new GlobalizationContext());
-            }
+            return new Repository<TranslationView>(new GlobalizationContext());
         }
     }
 }
