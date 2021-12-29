@@ -1,4 +1,3 @@
 {
-  "Globalization": "data source=database,1433; initial catalog=Globalization; user id=SA; password=lksU2o412f7tBj58t07B;application name=Globalization;",
-  "MariaGlobalization": "server=maria;user id=root;password=IC1joYMLZTT0fQMJ5qcz;database=Globalization"
+  "Globalization": "server=database; user id=root; password=IC1joYMLZTT0fQMJ5qcz;"
 }
