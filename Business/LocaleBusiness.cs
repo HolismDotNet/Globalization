@@ -37,7 +37,7 @@ namespace Holism.Globalization.Business
             return activeLocales;
         }
 
-        public Locale GetByKey(string key)
+        public override Locale GetByKey(string key)
         {
             var locale = Get(i => i.Key.ToLower() == key.ToLower());
             return locale;
