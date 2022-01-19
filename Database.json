@@ -39,6 +39,10 @@
                 {
                     "name": "Key",
                     "isUnique": true
+                },
+                {
+                    "name": "OriginalText",
+                    "isUnique": true
                 }
             ]
         },

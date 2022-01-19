@@ -11,5 +11,7 @@ public class Text : IEntity
 
     public string Key { get; set; }
 
+    public string OriginalText { get; set; }
+
     public dynamic RelatedItems { get; set; }
 }
