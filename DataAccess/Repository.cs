@@ -1,36 +1,36 @@
-namespace Holism.Globalization.DataAccess;
+namespace Globalization;
 
 public class Repository
 {
-    public static Repository<Locale> Locale
+    public static Repository<Globalization.Locale> Locale
     {
         get
         {
-            return new Repository<Locale>(new GlobalizationContext());
+            return new Repository<Globalization.Locale>(new GlobalizationContext());
         }
     }
 
-    public static Repository<Text> Text
+    public static Repository<Globalization.Text> Text
     {
         get
         {
-            return new Repository<Text>(new GlobalizationContext());
+            return new Repository<Globalization.Text>(new GlobalizationContext());
         }
     }
 
-    public static Repository<Translation> Translation
+    public static Repository<Globalization.Translation> Translation
     {
         get
         {
-            return new Repository<Translation>(new GlobalizationContext());
+            return new Repository<Globalization.Translation>(new GlobalizationContext());
         }
     }
 
-    public static Repository<TranslationView> TranslationView
+    public static Repository<Globalization.TranslationView> TranslationView
     {
         get
         {
-            return new Repository<TranslationView>(new GlobalizationContext());
+            return new Repository<Globalization.TranslationView>(new GlobalizationContext());
         }
     }
 }

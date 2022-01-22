@@ -1,4 +1,4 @@
-namespace Holism.Globalization.DataAccess;
+namespace Globalization;
 
 public class GlobalizationContext : DatabaseContext
 {

@@ -1,4 +1,4 @@
-namespace Holism.Globalization.Models;
+namespace Globalization;
 
 public class Text : IEntity
 {
