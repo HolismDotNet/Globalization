@@ -1,4 +1,4 @@
-namespace Holism.Globalization.AdminApi;
+namespace Globalization;
 
 public class LocaleController : ClientLookupReadController<Locale>
 {

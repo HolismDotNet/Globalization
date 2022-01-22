@@ -1,6 +1,4 @@
-
-
-namespace Holism.Globalization.Business;
+namespace Globalization;
 
 public class LocaleBusiness : Business<Locale, Locale>
 {
