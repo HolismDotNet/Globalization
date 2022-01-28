@@ -2,9 +2,9 @@ namespace Globalization;
 
 public class TextBusiness : Business<Text, Text>
 {
-    protected override Repository<Text> WriteRepository => RepositoryText;
+    protected override Repository<Text> WriteRepository => Repository.Text;
 
-    protected override ReadRepository<Text> ReadRepository => RepositoryText;
+    protected override ReadRepository<Text> ReadRepository => Repository.Text;
 
     public Text CreateOrGet(string text)
     {

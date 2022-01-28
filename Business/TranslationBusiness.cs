@@ -2,9 +2,9 @@
 
 public class TranslationBusiness : Business<TranslationView, Translation>
 {
-    protected override Repository<Translation> WriteRepository => RepositoryTranslation;
+    protected override Repository<Translation> WriteRepository => Repository.Translation;
 
-    protected override ReadRepository<TranslationView> ReadRepository => RepositoryTranslationView;
+    protected override ReadRepository<TranslationView> ReadRepository => Repository.TranslationView;
 
     public List<TranslationView> GetTranslations(long localeId)
     {
