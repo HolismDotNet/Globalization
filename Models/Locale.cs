@@ -1,6 +1,6 @@
 namespace Globalization;
 
-public class Locale : IEntity
+public class Locale : IEntity, IKey
 {
     public Locale()
     {

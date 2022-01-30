@@ -1,6 +1,6 @@
 namespace Globalization;
 
-public class Text : IEntity
+public class Text : IEntity, IKey
 {
     public Text()
     {
