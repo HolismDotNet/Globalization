@@ -2,14 +2,14 @@ namespace Globalization;
 
 public class TextBusiness : Business<Text, Text>
 {
-    protected override Repository<Text> WriteRepository => Repository.Text;
+    protected override Write<Text> Write => Repository.Text;
 
-    protected override ReadRepository<Text> ReadRepository => Repository.Text;
+    protected override Read<Text> Read => Repository.Text;
 
     public Text CreateOrGet(string text)
     {
         var key = text.Camelize();
-        var dbText = ReadRepository.Get(i => i.Key == key);
+        var dbText = Read.Get(i => i.Key == key);
         if  (dbText != null)
         {
             dbText.Key = key;

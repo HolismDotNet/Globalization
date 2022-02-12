@@ -4,9 +4,9 @@ public class LocaleBusiness : Business<Locale, Locale>
 {
     public const string Pattern = "language-region-script";
 
-    protected override Repository<Locale> WriteRepository => Repository.Locale;
+    protected override Write<Locale> Write => Repository.Locale;
 
-    protected override ReadRepository<Locale> ReadRepository => Repository.Locale;
+    protected override Read<Locale> Read => Repository.Locale;
 
     private static Dictionary<string, object> translationsDictionary = new Dictionary<string, object>();
 

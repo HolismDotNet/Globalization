@@ -2,35 +2,35 @@ namespace Globalization;
 
 public class Repository
 {
-    public static Repository<Globalization.Locale> Locale
+    public static Write<Globalization.Locale> Locale
     {
         get
         {
-            return new Repository<Globalization.Locale>(new GlobalizationContext());
+            return new Write<Globalization.Locale>(new GlobalizationContext());
         }
     }
 
-    public static Repository<Globalization.Text> Text
+    public static Write<Globalization.Text> Text
     {
         get
         {
-            return new Repository<Globalization.Text>(new GlobalizationContext());
+            return new Write<Globalization.Text>(new GlobalizationContext());
         }
     }
 
-    public static Repository<Globalization.Translation> Translation
+    public static Write<Globalization.Translation> Translation
     {
         get
         {
-            return new Repository<Globalization.Translation>(new GlobalizationContext());
+            return new Write<Globalization.Translation>(new GlobalizationContext());
         }
     }
 
-    public static Repository<Globalization.TranslationView> TranslationView
+    public static Write<Globalization.TranslationView> TranslationView
     {
         get
         {
-            return new Repository<Globalization.TranslationView>(new GlobalizationContext());
+            return new Write<Globalization.TranslationView>(new GlobalizationContext());
         }
     }
 }
