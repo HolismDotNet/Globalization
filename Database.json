@@ -6,11 +6,11 @@
             "columns": [
                 {
                     "name": "Key",
-                    "isUnique": true
+                    "unique": true
                 },
                 {
                     "name": "LocalKey",
-                    "isUnique": true
+                    "unique": true
                 },
                 {
                     "name": "IsRtl",
@@ -38,11 +38,11 @@
             "columns": [
                 {
                     "name": "Key",
-                    "isUnique": true
+                    "unique": true
                 },
                 {
                     "name": "OriginalText",
-                    "isUnique": true
+                    "unique": true
                 }
             ]
         },
@@ -65,7 +65,7 @@
                         "TextId",
                         "LocaleId"
                     ],
-                    "isUnique": true
+                    "unique": true
                 }
             ]
         }
