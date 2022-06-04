@@ -15,7 +15,7 @@
                 {
                     "name": "IsRtl",
                     "type": "boolean",
-                    "isNullable": true
+                    "nullable": true
                 },
                 {
                     "name": "IsActive",
@@ -25,11 +25,11 @@
                 },
                 {
                     "name": "CountryGuid",
-                    "isNullable": true
+                    "nullable": true
                 },
                 {
                     "name": "TimeZoneIdentifier",
-                    "isNullable": true
+                    "nullable": true
                 }
             ]
         },
