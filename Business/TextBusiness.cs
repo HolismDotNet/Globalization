@@ -8,6 +8,7 @@ public class TextBusiness : Business<Text, Text>
 
     public Text CreateOrGet(string text)
     {
+        text = Regex.Replace(text, @"[^\w ]", "");
         var key = text.Camelize();
         var dbText = Read.Get(i => i.Key == key);
         if  (dbText != null)
