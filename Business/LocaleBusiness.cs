@@ -42,7 +42,7 @@ public class LocaleBusiness : Business<Locale, Locale>
             return;
         }
         var locales = GetList(localeIds);
-        var localizationJsonFiles = Directory.GetFiles("/HolismDotNet/", "Localization.json", SearchOption.AllDirectories);
+        var localizationJsonFiles = Directory.GetFiles("/HolismVite/", "Localization.json", SearchOption.AllDirectories);
         foreach (var file in localizationJsonFiles)
         {
             var content = File.ReadAllText(file);
