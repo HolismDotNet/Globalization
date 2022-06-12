@@ -30,6 +30,11 @@
                 {
                     "name": "TimeZoneIdentifier",
                     "nullable": true
+                },
+                {
+                    "name": "SupportsLetterSpacing",
+                    "type": "boolean",
+                    "nullable": true
                 }
             ]
         },

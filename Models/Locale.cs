@@ -21,5 +21,7 @@ public class Locale : IEntity, IKey
 
     public string TimeZoneIdentifier { get; set; }
 
+    public bool? SupportsLetterSpacing { get; set; }
+
     public dynamic RelatedItems { get; set; }
 }
