@@ -42,7 +42,9 @@ public class LocaleBusiness : Business<Locale, Locale>
             return;
         }
         var locales = GetList(localeIds);
-        var localizationJsonFiles = Directory.GetFiles("/HolismVite/", "Localization.json", SearchOption.AllDirectories);
+        var localizationJsonFiles = Directory.GetFiles("/HolismVite", "Localization.json", SearchOption.AllDirectories).ToList();
+        var org = AppContext.BaseDirectory.Split('/')[1];
+        localizationJsonFiles.AddRange(Directory.GetFiles($"/{org}", "Localization.json", SearchOption.AllDirectories).ToList());
         foreach (var file in localizationJsonFiles)
         {
             var content = File.ReadAllText(file);
@@ -58,7 +60,7 @@ public class LocaleBusiness : Business<Locale, Locale>
         foreach (var localization in localizations)
         {
             var locale = localization["locale"].ToString();
-            if (locales.Any(i => i.Key == locale))
+            if (!locales.Any(i => i.Key == locale))
             {
                 continue;
             }
