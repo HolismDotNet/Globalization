@@ -27,7 +27,7 @@ public class TranslationBusiness : Business<TranslationView, Translation>
             if (dbTransaltion.Value != translation.Value)
             {
                 dbTransaltion.Value = translation.Value;
-                Update(translation.CastTo<Translation>());
+                Update(dbTransaltion.CastTo<Translation>());
                 return Get(dbTransaltion.Id);
             }
             return dbTransaltion;
