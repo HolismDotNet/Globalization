@@ -35,6 +35,50 @@ public class LocaleBusiness : Business<Locale, Locale>
         return locale;
     }
 
+    public void InsertTranslations(List<long> localeIds)
+    {
+        if (localeIds.Count == 0)
+        {
+            return;
+        }
+        var locales = GetList(localeIds);
+        var localizationJsonFiles = Directory.GetFiles("/HolismDotNet/", "Localization.json", SearchOption.AllDirectories);
+        foreach (var file in localizationJsonFiles)
+        {
+            var content = File.ReadAllText(file);
+            content.Ensure().IsJson($"File {file} is not JSON");
+            InsertTranslations(locales, content);
+        }
+    }
+
+    private void InsertTranslations(List<Locale> locales, string content)
+    {
+        var localization = content.Deserialize<Localization>();
+        foreach (var textItem in localization.Texts)
+        {
+            foreach (var translationItem in textItem.Translations)
+            {
+                InsertTranslation(locales, textItem, translationItem);
+            }
+        }
+    }
+
+    private void InsertTranslation(List<Locale> locales, TextItem textItem, TranslationItem translationItem)
+    {
+        if (locales.Any(i => i.Key == translationItem.Locale))
+        {
+            try
+            {
+                new TranslationBusiness().Create(textItem.Text, translationItem.Locale, translationItem.Translation);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+                throw new ServerException($"Can not insert translation {translationItem.Translation} for locale {translationItem.Locale} for text {textItem.Text}", ex);
+            }
+        }
+    }
+
     public List<Locale> GetActiveLocales()
     {
         var activeLocales = GetList(i => i.IsActive == true);
@@ -49,7 +93,7 @@ public class LocaleBusiness : Business<Locale, Locale>
 
     public object GetTranslations(string locale)
     {
-        if(TranslationsCache.ContainsKey(locale))
+        if (TranslationsCache.ContainsKey(locale))
         {
             return TranslationsCache[locale];
         }

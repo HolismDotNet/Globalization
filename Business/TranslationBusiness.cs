@@ -20,6 +20,17 @@ public class TranslationBusiness : Business<TranslationView, Translation>
         return Get(result.Id);
     }
 
+    public TranslationView Create(string text, string localeKey, string translation)
+    {
+        var result = Create(new TranslationView
+        {
+            TextKey = text,
+            LocaleId = new LocaleBusiness().GetByKey(localeKey).Id,
+            Value = translation
+        });
+        return result;
+    }
+
     // protected override void PostDeletion(Translation translation)
     // {
     //     new TextBusiness().Delete(translation.TextId);
