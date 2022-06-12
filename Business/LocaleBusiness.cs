@@ -49,6 +49,7 @@ public class LocaleBusiness : Business<Locale, Locale>
             content.Ensure().IsJson($"File {file} is not JSON");
             InsertTranslations(locales, content);
         }
+        translationsDictionary = null;
     }
 
     private void InsertTranslations(List<Locale> locales, string content)

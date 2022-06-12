@@ -15,9 +15,23 @@ public class TranslationBusiness : Business<TranslationView, Translation>
     public TranslationView Create(TranslationView translation)
     {
         var text = new TextBusiness().CreateOrGet(translation.TextKey);
-        translation.TextId = text.Id;
-        var result = Create(translation.CastTo<Translation>());
-        return Get(result.Id);
+        var dbTransaltion = Get(i => i.TextId == text.Id && i.LocaleId == translation.LocaleId);
+        if (dbTransaltion == null)
+        {
+            translation.TextId = text.Id;
+            var result = Create(translation.CastTo<Translation>());
+            return Get(result.Id);
+        }
+        else
+        {
+            if (dbTransaltion.Value != translation.Value)
+            {
+                dbTransaltion.Value = translation.Value;
+                Update(translation.CastTo<Translation>());
+                return Get(dbTransaltion.Id);
+            }
+            return dbTransaltion;
+        }
     }
 
     public TranslationView Create(string text, string localeKey, string translation)
