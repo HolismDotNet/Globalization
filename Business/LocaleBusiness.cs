@@ -43,6 +43,7 @@ public class LocaleBusiness : Business<Locale, Locale>
         }
         var locales = GetList(localeIds);
         var localizationJsonFiles = Directory.GetFiles("/HolismVite", "Localization.json", SearchOption.AllDirectories).ToList();
+        localizationJsonFiles.AddRange(Directory.GetFiles("/HolismDotNet", "Localization.json", SearchOption.AllDirectories).ToList());
         var org = AppContext.BaseDirectory.Split('/')[1];
         localizationJsonFiles.AddRange(Directory.GetFiles($"/{org}", "Localization.json", SearchOption.AllDirectories).ToList());
         foreach (var file in localizationJsonFiles)
