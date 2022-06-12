@@ -46,7 +46,7 @@ public class LocaleBusiness : Business<Locale, Locale>
         foreach (var file in localizationJsonFiles)
         {
             var content = File.ReadAllText(file);
-            content.Ensure().IsJson($"File {file} is not JSON");
+            content.Ensure().IsJson($"File {file} is not JSON").IsJsonArray($"File {file} should be a JSON array");
             InsertTranslations(locales, content);
         }
         translationsDictionary = null;
@@ -54,29 +54,31 @@ public class LocaleBusiness : Business<Locale, Locale>
 
     private void InsertTranslations(List<Locale> locales, string content)
     {
-        var localization = content.Deserialize<Localization>();
-        foreach (var textItem in localization.Texts)
+        var localizations = content.ParseJson().AsArray();
+        foreach (var localization in localizations)
         {
-            foreach (var translationItem in textItem.Translations)
+            var locale = localization["locale"].ToString();
+            if (locales.Any(i => i.Key == locale))
             {
-                InsertTranslation(locales, textItem, translationItem);
+                continue;
+            }
+            foreach (var item in localization["translations"].AsObject().AsEnumerable())
+            {
+                InsertTranslation(locale, item.Key, item.Value.ToString());
             }
         }
     }
 
-    private void InsertTranslation(List<Locale> locales, TextItem textItem, TranslationItem translationItem)
+    private void InsertTranslation(string locale, string text, string translation)
     {
-        if (locales.Any(i => i.Key == translationItem.Locale))
+        try
         {
-            try
-            {
-                new TranslationBusiness().Create(textItem.Text, translationItem.Locale, translationItem.Translation);
-            }
-            catch (Exception ex)
-            {
-                Logger.LogException(ex);
-                throw new ServerException($"Can not insert translation {translationItem.Translation} for locale {translationItem.Locale} for text {textItem.Text}", ex);
-            }
+            new TranslationBusiness().Create(text, locale, translation);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogException(ex);
+            throw new ServerException($"Can not insert translation {translation} for locale {locale} for text {text}", ex);
         }
     }
 
