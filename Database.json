@@ -73,6 +73,29 @@
                     "unique": true
                 }
             ]
+        },
+        {
+            "name": "EntityLocales",
+            "columns": [
+                {
+                    "name": "EntityTypeGuid"
+                },
+                {
+                    "name": "EntityGuid"
+                },
+                {
+                    "name": "LocaleId"
+                }
+            ],
+            "indexes": [
+                {
+                    "columns": [
+                        "EntityTypeGuid",
+                        "EntityGuid"
+                    ],
+                    "unique": true
+                }
+            ]
         }
     ],
     "views": [
