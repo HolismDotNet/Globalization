@@ -2,6 +2,14 @@ namespace Globalization;
 
 public class Repository
 {
+    public static Write<Globalization.EntityLocale> EntityLocale
+    {
+        get
+        {
+            return new Write<Globalization.EntityLocale>(new GlobalizationContext());
+        }
+    }
+
     public static Write<Globalization.Locale> Locale
     {
         get

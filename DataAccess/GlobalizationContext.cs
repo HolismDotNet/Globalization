@@ -4,6 +4,8 @@ public class GlobalizationContext : DatabaseContext
 {
     public override string ConnectionStringName => "Globalization";
 
+    public DbSet<Globalization.EntityLocale> EntityLocales { get; set; }
+
     public DbSet<Globalization.Locale> Locales { get; set; }
 
     public DbSet<Globalization.Text> Texts { get; set; }
