@@ -2,6 +2,28 @@
     "name": "Globalization",
     "tables": [
         {
+            "name": "SupportedLocales",
+            "isEnum": true,
+            "enumItems": [
+                {
+                    "key": "en",
+                    "value": 1
+                },
+                {
+                    "key": "fa",
+                    "value": 2
+                },
+                {
+                    "key": "ar",
+                    "value": 3
+                },
+                {
+                    "key": "ru",
+                    "value": 4
+                }
+            ]
+        },
+        {
             "name": "Locales",
             "columns": [
                 {
@@ -94,6 +116,27 @@
                         "EntityGuid"
                     ],
                     "unique": true
+                }
+            ]
+        },
+        {
+            "name": "UserChoices",
+            "columns": [
+                {
+                    "name": "UserGuid",
+                    "isUnique": true
+                },
+                {
+                    "name": "LocaleId"
+                },
+                {
+                    "name": "DateTimeLocale"
+                },
+                {
+                    "name": "Numbers"
+                },
+                {
+                    "name": "Currency"
                 }
             ]
         }
