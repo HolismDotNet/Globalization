@@ -129,5 +129,6 @@ public class LocaleBusiness : Business<Locale, Locale>
         {
             Write.Run($"delete from Globalization.Translations where LocaleId = {locale.Id}");
         }
+        translationsDictionary = null;
     }
 }
