@@ -14,6 +14,8 @@ public class GlobalizationContext : DatabaseContext
 
     public DbSet<Globalization.TranslationView> TranslationViews { get; set; }
 
+    public DbSet<Globalization.UserChoice> UserChoices { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

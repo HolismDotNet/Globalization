@@ -41,4 +41,12 @@ public class Repository
             return new Write<Globalization.TranslationView>(new GlobalizationContext());
         }
     }
+
+    public static Write<Globalization.UserChoice> UserChoice
+    {
+        get
+        {
+            return new Write<Globalization.UserChoice>(new GlobalizationContext());
+        }
+    }
 }
