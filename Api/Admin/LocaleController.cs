@@ -39,4 +39,11 @@ public class LocaleController : ClientLookupReadController<Locale>
         new LocaleBusiness().InsertTranslations(localeIds);
         return OkJson();
     }
+
+    [HttpPost]
+    public IActionResult RemoveTranslations([FromBody] List<long> localeIds)
+    {
+        new LocaleBusiness().RemoveTranslations(localeIds);
+        return OkJson();
+    }
 }

@@ -121,4 +121,13 @@ public class LocaleBusiness : Business<Locale, Locale>
         data.Translations = GetTranslations(locale);
         return data;
     }
+
+    public void RemoveTranslations(List<long> localeIds)
+    {
+        var locales = GetList(localeIds);
+        foreach (var locale in locales)
+        {
+            Write.Run($"delete from Globalization.Translations where LocaleId = {locale.Id}");
+        }
+    }
 }
