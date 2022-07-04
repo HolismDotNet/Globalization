@@ -57,6 +57,14 @@
                     "name": "SupportsLetterSpacing",
                     "type": "boolean",
                     "nullable": true
+                },
+                {
+                    "name": "LanguageRegionScript",
+                    "nullable": true
+                },
+                {
+                    "name": "Iso",
+                    "nullable": true
                 }
             ]
         },
