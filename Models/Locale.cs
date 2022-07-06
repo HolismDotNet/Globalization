@@ -23,5 +23,9 @@ public class Locale : IEntity, IKey
 
     public bool? SupportsLetterSpacing { get; set; }
 
+    public string LanguageRegionScript { get; set; }
+
+    public string Iso { get; set; }
+
     public dynamic RelatedItems { get; set; }
 }
